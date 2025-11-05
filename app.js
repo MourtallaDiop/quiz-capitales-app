@@ -7,7 +7,7 @@ let currentQuestionIndex = 0;
 let score = 0;
 let quizErrors = []; // Stocke les erreurs du quiz actuel
 let timerInterval; 
-const TIME_PER_QUESTION = 10; // Temps par question en secondes
+const TIME_PER_QUESTION = 15; // Temps par question en secondes
 let bestScores = {}; 
 
 // Références aux éléments HTML
@@ -247,3 +247,4 @@ document.addEventListener('DOMContentLoaded', () => {
     displayContinentSelection();
 
 });
+
