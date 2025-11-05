@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz des Capitales par Continent</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; margin-top: 50px; background-color: #f4f7f6; }
+        .container { 
+            max-width: 600px; 
+            margin: 0 auto; 
+            padding: 40px; 
+            border: 1px solid #e0e0e0; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+            background-color: white;
+        }
+        button { 
+            padding: 10px 20px; 
+            margin: 8px; 
+            cursor: pointer; 
+            border: 2px solid #ccc; 
+            border-radius: 6px;
+            transition: background-color 0.3s, border-color 0.3s;
+            font-size: 16px;
+        }
+
+        .option-correct {
+            background-color: #d4edda; 
+            border-color: #28a745;    
+            color: #155724;           
+        }
+
+        .option-incorrect {
+            background-color: #f8d7da; 
+            border-color: #dc3545;     
+            color: #721c24;            
+        }
+
+        #options-container button {
+            display: block; 
+            width: 80%;
+            margin: 10px auto;
+        }
+
+        #error-summary {
+            text-align: left;
+            margin-top: 30px;
+            padding: 15px;
+            border: 1px dashed #dc3545;
+            background-color: #fef8f8;
+            border-radius: 8px;
+        }
+        #error-summary h3 { margin-top: 0; color: #dc3545; }
+        #error-summary ul { list-style: none; padding: 0; }
+        #error-summary li { margin-bottom: 5px; }
+        
+        /* Cacher ces sections par défaut */
+        #quiz-section { display: none; margin-top: 20px; }
+        #results-section { display: none; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <audio id="audio-correct" src="correct.mp3.wav" preload="auto"></audio>
+    <audio id="audio-incorrect" src="incorrect.mp3.wav" preload="auto"></audio>
+
+    <div class="container">
+        <h1>🌍 Quiz des Capitales</h1>
+
+        <div id="continent-selection">
+            <h2>Choisissez un Continent pour commencer :</h2>
+        </div>
+
+        <div id="quiz-section">
+            <h3 id="quiz-title"></h3>
+            <p id="timer" style="font-weight: bold; font-size: 1.2em; color: #dc3545;"></p>
+            
+            <p id="question-text"></p>
+            <div id="options-container">
+            </div>
+            <p id="progression"></p>
+        </div>
+
+        <div id="results-section">
+            <h2>🎉 Fin du Quiz !</h2>
+            <p id="final-score"></p>
+            <div id="error-summary" style="display: none;">
+                <h3>Vos Erreurs à Réviser 📚</h3>
+                <ul id="error-list"></ul>
+            </div>
+            <button onclick="window.location.reload()">Recommencer un Quiz</button>
+        </div>
+
+    </div>
+
+    <script src="quizData.js"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>
